@@ -138,6 +138,12 @@ class YoutubePlayer extends StatefulWidget {
   /// Custom pause button widget
   final Widget customPauseWidget;
 
+  /// Show full screen toggle
+  final bool showFullScreenToggle;
+
+  /// Show playback speed switch
+  final bool showPlaybackSpeedToggle;
+
   /// Creates [YoutubePlayer] widget.
   const YoutubePlayer({
     this.key,
@@ -158,6 +164,8 @@ class YoutubePlayer extends StatefulWidget {
     this.showVideoProgressIndicator = false,
     this.customPlayWidget,
     this.customPauseWidget,
+    this.showFullScreenToggle,
+    this.showPlaybackSpeedToggle,
   });
 
   /// Converts fully qualified YouTube Url to video id.
@@ -379,8 +387,10 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
                                   colors: widget.progressColors,
                                 ),
                                 RemainingDuration(),
-                                const PlaybackSpeedButton(),
-                                FullScreenButton(),
+                                if (widget.showPlaybackSpeedToggle ?? true)
+                                  const PlaybackSpeedButton(),
+                                if (widget.showFullScreenToggle ?? true)
+                                  FullScreenButton(),
                               ],
                         ),
                       ),

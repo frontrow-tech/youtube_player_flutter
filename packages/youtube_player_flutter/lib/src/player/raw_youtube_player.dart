@@ -266,7 +266,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                         'rel': 0,
                         'showinfo': 0,
                         'iv_load_policy': 3,
-                        'modestbranding': 1,
+                        'modestbranding': ${boolean(value: controller.flags.enableModestBranding)},
                         'cc_load_policy': ${boolean(value: controller.flags.enableCaption)},
                         'cc_lang_pref': '${controller.flags.captionLanguage}',
                         'autoplay': ${boolean(value: controller.flags.autoPlay)},
