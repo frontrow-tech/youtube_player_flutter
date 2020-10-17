@@ -67,9 +67,6 @@ class YoutubePlayerFlags {
   /// Specifies the default end point of the video in seconds
   final int endAt;
 
-  /// Specifies whether or not modest branding should be enabled
-  final bool enableModestBranding;
-
   /// Creates [YoutubePlayerFlags].
   const YoutubePlayerFlags({
     this.hideControls = false,
@@ -85,7 +82,6 @@ class YoutubePlayerFlags {
     this.forceHD = false,
     this.startAt = 0,
     this.endAt,
-    this.enableModestBranding = true,
   });
 
   /// Copies new values assigned to the [YoutubePlayerFlags].
@@ -105,19 +101,18 @@ class YoutubePlayerFlags {
       int endAt,
       bool enableModestBranding}) {
     return YoutubePlayerFlags(
-        autoPlay: autoPlay ?? this.autoPlay,
-        captionLanguage: captionLanguage ?? this.captionLanguage,
-        disableDragSeek: disableDragSeek ?? this.disableDragSeek,
-        enableCaption: enableCaption ?? this.enableCaption,
-        hideControls: hideControls ?? this.hideControls,
-        hideThumbnail: hideThumbnail ?? this.hideThumbnail,
-        isLive: isLive ?? this.isLive,
-        loop: loop ?? this.loop,
-        mute: mute ?? this.mute,
-        forceHD: forceHD ?? this.forceHD,
-        startAt: startAt ?? this.startAt,
-        endAt: endAt ?? this.endAt,
-        enableModestBranding:
-            enableModestBranding ?? this.enableModestBranding);
+      autoPlay: autoPlay ?? this.autoPlay,
+      captionLanguage: captionLanguage ?? this.captionLanguage,
+      disableDragSeek: disableDragSeek ?? this.disableDragSeek,
+      enableCaption: enableCaption ?? this.enableCaption,
+      hideControls: hideControls ?? this.hideControls,
+      hideThumbnail: hideThumbnail ?? this.hideThumbnail,
+      isLive: isLive ?? this.isLive,
+      loop: loop ?? this.loop,
+      mute: mute ?? this.mute,
+      forceHD: forceHD ?? this.forceHD,
+      startAt: startAt ?? this.startAt,
+      endAt: endAt ?? this.endAt,
+    );
   }
 }

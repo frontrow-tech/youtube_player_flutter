@@ -361,7 +361,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
               timeOut: widget.controlsTimeOut,
             ),
             Positioned(
-              bottom: 0,
+              bottom: 10,
               left: 0,
               right: 0,
               child: AnimatedOpacity(
@@ -391,6 +391,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
                                   const PlaybackSpeedButton(),
                                 if (widget.showFullScreenToggle ?? true)
                                   FullScreenButton(),
+                                const SizedBox(width: 14.0),
                               ],
                         ),
                       ),
