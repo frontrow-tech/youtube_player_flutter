@@ -92,8 +92,8 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
             onTap: () => _controller.value.isPlaying
                 ? _controller.pause()
                 : _controller.play(),
-            child: widget.customPauseWidget != null &&
-                    widget.customPlayWidget != null
+            child: widget.customPauseWidget == null ||
+                    widget.customPlayWidget == null
                 ? AnimatedIcon(
                     icon: AnimatedIcons.play_pause,
                     progress: _animController.view,
