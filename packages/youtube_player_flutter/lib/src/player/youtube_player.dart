@@ -144,6 +144,9 @@ class YoutubePlayer extends StatefulWidget {
   /// Show playback speed switch
   final bool showPlaybackSpeedToggle;
 
+  /// The bottom offset for actions
+  final double bottomPosition;
+
   /// Creates [YoutubePlayer] widget.
   const YoutubePlayer({
     this.key,
@@ -166,6 +169,7 @@ class YoutubePlayer extends StatefulWidget {
     this.customPauseWidget,
     this.showFullScreenToggle,
     this.showPlaybackSpeedToggle,
+    this.bottomPosition,
   });
 
   /// Converts fully qualified YouTube Url to video id.
@@ -361,7 +365,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
               timeOut: widget.controlsTimeOut,
             ),
             Positioned(
-              bottom: 10,
+              bottom: widget.bottomPosition ?? 10,
               left: 0,
               right: 0,
               child: AnimatedOpacity(
