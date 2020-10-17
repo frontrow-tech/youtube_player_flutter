@@ -15,10 +15,18 @@ class PlayPauseButton extends StatefulWidget {
   /// Defines placeholder widget to show when player is in buffering state.
   final Widget bufferIndicator;
 
+  /// Custom play button widget
+  final Widget customPlayWidget;
+
+  /// Custom pause button widget
+  final Widget customPauseWidget;
+
   /// Creates [PlayPauseButton] widget.
   PlayPauseButton({
     this.controller,
     this.bufferIndicator,
+    this.customPlayWidget,
+    this.customPauseWidget,
   });
 
   @override
@@ -84,12 +92,17 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
             onTap: () => _controller.value.isPlaying
                 ? _controller.pause()
                 : _controller.play(),
-            child: AnimatedIcon(
-              icon: AnimatedIcons.play_pause,
-              progress: _animController.view,
-              color: Colors.white,
-              size: 60.0,
-            ),
+            child: widget.customPauseWidget != null &&
+                    widget.customPlayWidget != null
+                ? AnimatedIcon(
+                    icon: AnimatedIcons.play_pause,
+                    progress: _animController.view,
+                    color: Colors.white,
+                    size: 60.0,
+                  )
+                : _controller.value.isPlaying
+                    ? widget.customPauseWidget
+                    : widget.customPlayWidget,
           ),
         ),
       );

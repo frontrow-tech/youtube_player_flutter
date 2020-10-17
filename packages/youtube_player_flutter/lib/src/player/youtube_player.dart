@@ -132,6 +132,12 @@ class YoutubePlayer extends StatefulWidget {
   /// {@endtemplate}
   final bool showVideoProgressIndicator;
 
+  /// Custom play button widget
+  final Widget customPlayWidget;
+
+  /// Custom pause button widget
+  final Widget customPauseWidget;
+
   /// Creates [YoutubePlayer] widget.
   const YoutubePlayer({
     this.key,
@@ -150,6 +156,8 @@ class YoutubePlayer extends StatefulWidget {
     this.actionsPadding = const EdgeInsets.all(8.0),
     this.thumbnail,
     this.showVideoProgressIndicator = false,
+    this.customPlayWidget,
+    this.customPauseWidget,
   });
 
   /// Converts fully qualified YouTube Url to video id.
@@ -399,7 +407,10 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
           ],
           if (!controller.flags.hideControls)
             Center(
-              child: PlayPauseButton(),
+              child: PlayPauseButton(
+                customPauseWidget: widget.customPauseWidget,
+                customPlayWidget: widget.customPlayWidget,
+              ),
             ),
           if (controller.value.hasError) errorWidget,
         ],
