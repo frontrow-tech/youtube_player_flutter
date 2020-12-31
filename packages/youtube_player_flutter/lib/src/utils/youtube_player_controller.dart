@@ -175,7 +175,7 @@ class YoutubePlayerController extends ValueNotifier<YoutubePlayerValue> {
       } else {
         print('The controller is not ready for method calls.');
       }
-    } on MissingPluginException {
+    } catch (err) {
       print('The controller is not ready for method calls.');
     }
   }
